@@ -12,7 +12,7 @@ export default function App() {
       <div className=" p-4 shadow-lg bg-gray-700 rounded-md text-black">
         <Input todos={todos} setTodos={setTodos} />
         <br />
-        <List todos={todos} />
+        <List todos={todos} setTodos={setTodos}/>
       </div>
     </div>
   );

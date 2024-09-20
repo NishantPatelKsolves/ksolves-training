@@ -17,7 +17,9 @@ const Input = ({ todos, setTodos }) => {
       <button
         className="bg-orange-500 text-black p-2 rounded-e-md"
         onClick={() => {
-          setTodos([...todos, input]);
+          let id = Date.now();
+          let text = input;
+          setTodos([...todos, { id, text }]);
           setInput("");
         }}
       >
