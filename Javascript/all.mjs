@@ -349,3 +349,49 @@ console.log(array.at(-1)); // 30
 // const data = [10, 20, 30, 35, 50];
 // const grouped = data.groupBy((n) => (n % 2 === 0 ? "even" : "odd"));
 // console.log(grouped); // { even: [10, 20, 30, 50], odd: [35] }
+
+
+//find(), search() and filter() methods respectively search, test, and filter elements in an array based on a condition. These methods are very useful when working with arrays of objects or other complex data structures. 
+
+//find()
+//The find() method returns the first element in the array that satisfies the provided testing function. If no element satisfies the condition, it returns undefined.
+//find() is used when you want to locate a single object in an array, such as searching for a user or product by ID.
+//Syntax: arr.find(callback(element, index, array), thisArg)
+
+const users1 = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+  { id: 3, name: "Jack" }
+];
+
+const user = users1.find(user => user.id === 2);
+console.log(user);//{ id: 2, name: 'Jane' }
+
+//some()
+//The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a boolean (true or false).
+//some() is useful when you want to check if at least one element in an array meets a certain condition, such as checking if an array of tasks contains any uncompleted tasks.
+//Syntax: arr.some(callback(element, index, array), thisArg)
+
+const users2 = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+  { id: 3, name: "Jack" }
+];
+
+const hasUserWithNameJane = users2.some(user => user.name === "Jane");
+console.log(hasUserWithNameJane);  //true
+
+
+//filter()
+//The filter() method returns a new array containing all elements that pass the test implemented by the provided function. If no elements pass the test, it returns an empty array.
+//filter() is used when you need to select multiple elements from an array that meet a specific condition, such as filtering a list of items to only show available products or filtering tasks to show only completed ones.
+//Syntax: arr.filter(callback(element, index, array), thisArg)
+
+const users3 = [
+  { id: 1, name: "John", active: true },
+  { id: 2, name: "Jane", active: false },
+  { id: 3, name: "Jack", active: true }
+];
+
+const activeUsers = users3.filter(user => user.active);
+console.log(activeUsers);// [{ id: 1, name: "John", active: true }, { id: 3, name: "Jack", active: true }]
