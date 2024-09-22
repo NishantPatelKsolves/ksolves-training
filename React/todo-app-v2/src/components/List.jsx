@@ -22,7 +22,7 @@ const List = ({ todos, setTodos }) => {
                     if (element.id === t.id) {
                       return { ...element, status: e.target.checked };
                     }
-                    return element; // Return unchanged todos
+                    return element; // Return unchanged todo
                   });
                   setTodos(updatedTodos);
                 }}

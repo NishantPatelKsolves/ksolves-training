@@ -3,10 +3,8 @@
  * working with files and directories.
  */
 
-// import { rejects } from "assert";
-// import { error } from "console";
 // import fs from "fs";
-// import { resolve } from "path";
+
 
 // //Read a file
 // //Async
