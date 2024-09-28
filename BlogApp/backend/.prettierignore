@@ -1,0 +1,10 @@
+#prettier should ignore these files
+/.vscode
+/node_modules
+./dist
+
+#ignore any version of .env
+*.env
+.env
+.env.*
+
