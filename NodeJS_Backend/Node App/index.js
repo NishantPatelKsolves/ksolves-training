@@ -1,4 +1,5 @@
 import http from 'http';
+import logger from './utilities/logger.js';
 
 const server = http.createServer((req,res)=>{
 
@@ -11,6 +12,7 @@ const server = http.createServer((req,res)=>{
         res.statusCode = 200;
         res.setHeader('Content-Type','text/plain')
         res.end('Home route')
+        logger.info('Successful Home request')
         break;
         }
         case '/about': 
