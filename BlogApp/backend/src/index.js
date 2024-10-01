@@ -10,7 +10,7 @@ if (resultEnvLoading.error) {
     console.log(`Error loading environment variables`);
     throw resultEnvLoading.error;
 } else {
-    
+    console.log('Dot env loaded successfully')
 }
 
 const port = process.env.PORT || 9001;
