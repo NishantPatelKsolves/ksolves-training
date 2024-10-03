@@ -80,20 +80,6 @@ userSchema.methods.generateAccessToken = function () {
     );
 };
 
-userSchema.methods.generateAccessToken = function () {
-    //short lived access token
-    return jwt.sign(
-        {
-            _id: this._id,
-            email: this.email,
-            username: this.username,
-            fullname: this.fullname,
-        },
-        process.env.JWT_ACCES_TOKEN_SECRET,
-        process.env.JWT_ACCESS_TOKEN_EXPIRY
-    );
-};
-
 userSchema.methods.generateRefreshToken = function () {
     //short lived access token
     return jwt.sign(
