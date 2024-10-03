@@ -1,5 +1,7 @@
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
+import dotenv from 'dotenv';
+dotenv.config();
 
 /**
  * function that acceps a file path and this file goes to cloudinary
@@ -13,7 +15,7 @@ cloudinary.config({
 });
 
 // Upload an image
-const uploadObnCloudinaryResult = async (localFilePath) => {
+const uploadOnCloudinaryResult = async (localFilePath) => {
     try {
         if (!localFilePath) return null;
         const uploadResponse = await cloudinary.uploader.upload(localFilePath, {
@@ -31,20 +33,15 @@ const uploadObnCloudinaryResult = async (localFilePath) => {
         return null;
     }
 };
-// Optimize delivery by resizing and applying auto-format and auto-quality
-const optimizeUrl = cloudinary.url('shoes', {
-    fetch_format: 'auto',
-    quality: 'auto',
-});
 
-console.log(optimizeUrl);
+const deleteFromCloudinary = async (publicId) => {
+    try {
+        const deletionResult = await cloudinary.uploader.destroy(publicId);
+        console.log('File deleted from cloudinary. Public ID:', publicId);
+    } catch (error) {
+        console.log('Error deleting from cloudinary', error);
+        return null;
+    }
+};
 
-// Transform the image: auto-crop to square aspect_ratio
-const autoCropUrl = cloudinary.url('shoes', {
-    crop: 'auto',
-    gravity: 'auto',
-    width: 500,
-    height: 500,
-});
-
-console.log(autoCropUrl);
+export { uploadOnCloudinaryResult, deleteFromCloudinary };
