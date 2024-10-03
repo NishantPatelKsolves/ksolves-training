@@ -17,6 +17,8 @@ app.use(express.urlencoded({ extended: true, limit: '16kb' }));
 app.use(express.static('public'));
 app.use(cookieParser());
 
+console.log('All middlewares loaded successfully');
+
 // any request can fail, and writing try-catch for each end-point is cumbersome, so we use async handler
 app.get('/', (req, res) => {
     res.send('Home route');
@@ -26,4 +28,8 @@ app.get('/', (req, res) => {
 import healthCheckRouter from './routes/healthCheck.routes.js';
 app.use('/api/v1/healthcheck', healthCheckRouter);
 //app.get('healthcheck', () => {});
+
+import userRouter from './routes/user.routes.js';
+app.use('/api/v1/users', userRouter);
+
 export { app };
